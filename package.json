@@ -1,0 +1,66 @@
+{
+    "name": "@elizaos-plugins/plugin-siwe",
+    "version": "0.1.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@elizaos/core": "workspace:*",
+        "ethers": "^6.9.0",
+        "siwe": "^2.1.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.15.0",
+        "@typescript-eslint/parser": "^6.15.0",
+        "eslint": "^8.56.0",
+        "prettier": "^3.1.1",
+        "typescript": "^5.3.3",
+        "vitest": "^3.0.5",
+        "tsup": "8.3.5",
+        "@vitest/coverage-v8": "^1.4.0"
+    },
+    "scripts": {
+        "build": "tsup --format esm --dts",
+        "dev": "tsup --format esm --dts --watch",
+        "lint": "eslint --fix  --cache .",
+        "test": "vitest",
+        "test:watch": "vitest watch",
+        "test:coverage": "vitest run --coverage",
+        "format": "prettier --write src/**/*.ts"
+    },
+    "agentConfig": {
+        "pluginType": "elizaos:plugin:1.0.0",
+        "pluginParameters": {
+            "SIWE_DOMAIN": {
+                "type": "string",
+                "description": "Domain for SIWE messages"
+            },
+            "SIWE_URI": {
+                "type": "string",
+                "description": "URI for SIWE messages"
+            },
+            "SIWE_STATEMENT": {
+                "type": "string",
+                "description": "Statement for SIWE messages"
+            },
+            "SIWE_VERIFICATION_EXPIRY": {
+                "type": "string",
+                "description": "Verification expiry time in milliseconds"
+            }
+        }
+    }
+}
