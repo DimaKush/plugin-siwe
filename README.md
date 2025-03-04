@@ -111,6 +111,11 @@ pnpm install
 pnpm test
 ```
 
+## Resources
+
+- [SIWE repository](https://github.com/spruceid/siwe)
+- [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)
+
 ## License
 
 MIT
